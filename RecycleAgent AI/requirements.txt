@@ -1,4 +1,0 @@
-streamlit==1.61.1
-Pillow
-google-genai
-pydantic
