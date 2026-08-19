@@ -1940,6 +1940,72 @@ st.html(
 )
 
 
+
+# =========================================================
+# MOBILE SIDEBAR OVERLAY FIX
+# =========================================================
+
+st.html(
+    """
+    <style>
+
+    /*
+    Keep the main content below the sidebar.
+    This is deliberately a NORMAL string,
+    not an f-string, so normal CSS braces
+    are safe here.
+    */
+
+    [data-testid="stMainBlockContainer"] {
+        position: relative;
+        z-index: 1 !important;
+    }
+
+
+    /*
+    Do not change Streamlit's own sidebar
+    positioning. Only raise its stacking level.
+    */
+
+    [data-testid="stSidebar"] {
+        z-index: 99999 !important;
+    }
+
+
+    [data-testid="stSidebar"] > div {
+        z-index: 99999 !important;
+    }
+
+
+    @media (max-width: 700px) {
+
+        [data-testid="stMain"],
+        [data-testid="stMainBlockContainer"] {
+            z-index: 1 !important;
+        }
+
+
+        [data-testid="stSidebar"] {
+            z-index: 99999 !important;
+        }
+
+
+        [data-testid="stSidebar"] > div {
+            z-index: 99999 !important;
+        }
+
+
+        [data-testid="stSidebarCollapseButton"],
+        [data-testid="stExpandSidebarButton"] {
+            z-index: 100000 !important;
+        }
+
+    }
+
+    </style>
+    """
+)
+
 # =========================================================
 # INTRO SCREEN
 # =========================================================
